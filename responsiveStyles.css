@@ -1,0 +1,415 @@
+/* =======================================================
+   RESPONSIVE DESIGN
+   OrbitalGuard AI
+======================================================= */
+
+/* Large Desktop (1400px+) */
+
+@media screen and (min-width:1400px) {
+
+  body {
+
+    font-size: 18px;
+
+  }
+
+  .cards {
+
+    grid-template-columns: repeat(4,1fr);
+
+  }
+
+  #earth3d {
+
+    height: 650px;
+
+  }
+
+}
+
+
+/* Laptop */
+
+@media screen and (max-width:1200px) {
+
+  .cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 20px;
+
+  }
+
+  .guide-grid {
+
+    grid-template-columns: repeat(2,1fr);
+
+  }
+
+  #map {
+
+    height: 500px;
+
+  }
+
+  #earth3d {
+
+    height: 500px;
+
+  }
+
+}
+
+
+/* Tablet */
+
+@media screen and (max-width:768px) {
+
+  header {
+
+    padding: 30px 20px;
+
+  }
+
+  header h1 {
+
+    font-size: 32px;
+
+  }
+
+  .hero {
+
+    padding: 25px;
+
+  }
+
+  .hero h2 {
+
+    font-size: 28px;
+
+  }
+
+  .hero p {
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+  }
+
+  .cards {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .card {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+  }
+
+  .guide-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .searchBar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+  }
+
+  .searchBar input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+  }
+
+  .searchBar button {
+
+    width: 100%;
+
+  }
+
+  #map {
+
+    height: 400px;
+
+    margin: 10px;
+
+  }
+
+  #earth3d {
+
+    height: 400px;
+
+  }
+
+  #objectInfo {
+
+    padding: 18px;
+
+    font-size: 15px;
+
+  }
+
+  .guide-toggle {
+
+    font-size: 18px;
+
+  }
+
+  .timelineItem {
+
+    font-size: 14px;
+
+  }
+
+}
+
+
+/* Mobile Phones */
+
+@media screen and (max-width:480px) {
+
+  body {
+
+    font-size: 15px;
+
+  }
+
+  header {
+
+    padding: 25px 15px;
+
+  }
+
+  header h1 {
+
+    font-size: 26px;
+
+  }
+
+  header p {
+
+    font-size: 15px;
+
+  }
+
+  .hero {
+
+    padding: 20px;
+
+  }
+
+  .hero h2 {
+
+    font-size: 24px;
+
+  }
+
+  .hero p {
+
+    font-size: 15px;
+
+  }
+
+  section {
+
+    padding: 15px;
+
+  }
+
+  .cards {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+  }
+
+  .card {
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+  }
+
+  .card h3 {
+
+    font-size: 18px;
+
+  }
+
+  .card p {
+
+    font-size: 20px;
+
+  }
+
+  .guide-card {
+
+    padding: 20px;
+
+  }
+
+  .guide-card h3 {
+
+    font-size: 18px;
+
+  }
+
+  .guide-card p {
+
+    font-size: 15px;
+
+  }
+
+  .guide-toggle {
+
+    font-size: 17px;
+
+    padding: 15px;
+
+  }
+
+  .searchBar {
+
+    display: flex;
+
+    flex-direction: column;
+
+  }
+
+  .searchBar input {
+
+    width: 100%;
+
+    font-size: 16px;
+
+    padding: 12px;
+
+  }
+
+  .searchBar button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+  }
+
+  #map {
+
+    height: 320px;
+
+    margin: 0;
+
+    border-radius: 10px;
+
+  }
+
+  #earth3d {
+
+    height: 320px;
+
+  }
+
+  .legend {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    text-align: center;
+
+  }
+
+  #objectInfo {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+  }
+
+  footer {
+
+    padding: 20px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+  }
+
+}
+
+
+/* Very Small Phones */
+
+@media screen and (max-width:360px) {
+
+  header h1 {
+
+    font-size: 22px;
+
+  }
+
+  .hero h2 {
+
+    font-size: 20px;
+
+  }
+
+  .card h3 {
+
+    font-size: 16px;
+
+  }
+
+  .card p {
+
+    font-size: 18px;
+
+  }
+
+  .guide-toggle {
+
+    font-size: 15px;
+
+  }
+
+  #map {
+
+    height: 280px;
+    width: 350px;
+
+  }
+
+  #earth3d {
+
+    height: 280px;
+width: 350px;
+  }
+
+}
