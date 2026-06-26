@@ -1,0 +1,12 @@
+/* Optional: Improve browser tab appearance on some browsers */
+
+link[rel~="icon"]{
+    border-radius:4px;
+}
+
+/* Optional: Favicon pulse effect on hover (for supported browsers) */
+
+link[rel~="icon"]:hover{
+    filter:drop-shadow(0 0 4px #00b5ff);
+    transition:filter 0.3s ease;
+}
