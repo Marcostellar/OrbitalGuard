@@ -1,1 +1,949 @@
-<!Doctype>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>
+    OrbitalGuard AI | Mission Control
+  </title>
+
+  <link rel="stylesheet"
+  href="styles.css">
+  <link rel="stylesheet"
+  href="responsiveStyles.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet"
+  href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+<!-- satellite.js -->
+<script src="https://unpkg.com/satellite.js/dist/satellite.min.js"></script>
+
+</head>
+
+<body>
+<!-- ========= FAVICON & APP ICONS ========= -->
+
+<link rel="icon" type="image/x-icon" href="content://com.android.externalstorage.documents/tree/primary%3AMyCodeProjects::primary:MyCodeProjects/Space tracking Project/image.jpg">
+<link rel="shortcut icon" type="image/x-icon" href="content://com.android.externalstorage.documents/tree/primary%3AMyCodeProjects::primary:MyCodeProjects/Space tracking Project/image.jpg (2)">
+
+<!-- For high-resolution displays -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+<!-- Apple devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Manifest for PWA capabilities (optional but recommended) -->
+<link rel="manifest" href="site.webmanifest">
+
+<!-- ========= PAGE TITLE ========= -->
+
+<!-- ===================================== -->
+<!-- TOP NAVIGATION -->
+<!-- ===================================== -->
+
+
+<header class="topBar">
+
+<title> Marcostellar-Dev/OrbitalGuard</title>
+<div class="logoArea">
+
+<h1>
+
+🌍 OrbitalGuard AI
+
+</h1>
+
+<p>
+
+Autonomous Space Debris Mission Control
+
+</p>
+
+</div>
+
+<div class="missionStatus">
+
+<div class="statusCard">
+
+<h3>
+
+MISSION STATUS
+
+</h3>
+
+<p id="status">
+
+Initializing...
+
+</p>
+
+</div>
+
+<div class="statusCard">
+
+<h3>
+
+REAL TIME(WAT)
+
+</h3>
+
+<p id="utcClock">
+
+00:00:00
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ===================================== -->
+<!-- HERO -->
+<!-- ===================================== -->
+
+<section class="hero">
+
+<h2>
+
+Protecting Earth's Orbital Environment
+
+</h2>
+
+<p>
+
+OrbitalGuard AI is a research project by
+<b>Peculiar Marcellinus</b> focused on developing
+artificial intelligence and robotic spacecraft capable of
+detecting, prioritizing, capturing and safely de-orbiting
+hazardous orbital debris for recycling.
+
+</p>
+
+</section>
+<!-- ====================================================== -->
+<!-- HOW TO USE ORBITALGUARD AI -->
+<!-- ====================================================== -->
+<!-- ========================================= -->
+<!-- USER GUIDE -->
+<!-- ========================================= -->
+
+<section class="guide-section">
+
+<button id="guideToggle" class="guide-toggle">
+
+📖 Show User Guide ▼
+
+</button>
+
+<div id="guideContent" class="guide-content">
+
+<h2>🛰️ How to Use OrbitalGuard AI</h2>
+
+<p class="guide-intro">
+
+Welcome to <strong>OrbitalGuard AI Mission Control</strong>,
+an interactive platform developed to simulate and minitor Earth's orbital
+environment while demonstrating AI-powered robotic space
+debris removal.
+
+</p>
+<!-- ====================================================== -->
+<!-- HOW TO USE ORBITALGUARD AI -->
+<!-- ====================================================== -->
+
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>📊 Explore the Dashboard</h3>
+
+<p>
+
+Monitor real-time mission statistics including the total
+tracked objects, collision alerts, orbital distribution,
+average orbital velocity, estimated debris mass and the
+AI-selected capture target.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🌍 Navigate the Orbital Map</h3>
+
+<p>
+
+Use the interactive world map to explore satellites and
+orbital debris. Zoom and pan across Earth while viewing
+objects positioned in Low Earth Orbit (LEO), Medium Earth
+Orbit (MEO) and Geostationary Orbit (GEO).
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🔍 Search Any Object</h3>
+
+<p>
+
+Enter the name of a satellite or debris object in the search
+bar. OrbitalGuard AI will automatically locate the object,
+center the map and display detailed mission information.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🛰 Inspect Satellite Information</h3>
+
+<p>
+
+Click on any satellite marker to access technical data,
+including altitude, orbital velocity, estimated debris mass,
+collision probability, AI capture priority and mission
+recommendations.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🤖 Follow AI Mission Status</h3>
+
+<p>
+
+Observe the Mission Timeline and AI Status panel as
+OrbitalGuard AI continuously evaluates orbital traffic,
+detects potential collision risks and identifies priority
+targets for future robotic capture missions.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🌎 Explore the 3D Earth</h3>
+
+<p>
+
+Interact with the 3D Earth visualization to better understand
+orbital regions, satellite distribution and how space debris
+surrounds our planet in real time.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- PROJECT VISION -->
+<!-- ====================================================== -->
+
+<section class="vision-section">
+
+<h2>🚀 Project Vision</h2>
+
+<p>
+Hi ,i'm <strong>Peculiar Marcellinus</strong> i built
+OrbitalGuard AI to demonstrate my research
+focused on the future
+of intelligent robotic spacecraft capable of autonomously
+identifying, capturing and safely returning hazardous orbital
+debris to Earth for recycling.
+And Hey this is just the starting of something nice.
+Email me ""OG ""at <a class="email" href="mailto:marcostellar-multiverse@proton.me" target="_blank"> marcostellar-multiverse@proton.me </a>to join my waitlist.
+Next Focus:Building an actual Debris Monitoring System.
+</p>
+
+<p>
+
+The long-term objective is to combine Artificial Intelligence,
+Robotics, Computer Vision and Aerospace Engineering to
+develop autonomous orbital servicing systems that improve
+space sustainability, reduce collision risks and support the
+next generation of safe and responsible space exploration.
+
+</p>
+
+</section>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- MAIN GRID -->
+<!-- ===================================== -->
+
+<div class="missionGrid">
+
+<!-- ================================ -->
+<!-- LEFT COLUMN -->
+<!-- ================================ -->
+
+<div class="leftColumn">
+
+<section class="panel">
+
+<h2>
+
+🌍 3D Earth Visualization
+
+</h2>
+
+<div id="earth3d"></div>
+
+<div class="legend">
+
+<span class="leo">
+
+🟢 LEO
+
+</span>
+
+<span class="meo">
+
+🟠 MEO
+
+</span>
+
+<span class="geo">
+
+🔴 GEO
+
+</span>
+
+</div>
+
+</section>
+
+<section class="panel">
+
+<h2>
+
+🛰 Live Orbital Map
+
+</h2>
+
+<div id="map"></div>
+
+</section>
+
+</div>
+
+<!-- ================================ -->
+<!-- RIGHT COLUMN -->
+<!-- ================================ -->
+
+<div class="rightColumn">
+
+<section class="panel aiPanel">
+
+<h2>
+
+🤖 AI Mission Assistant
+
+</h2>
+
+<div class="infoRow">
+
+<span>
+
+Threat Level
+
+</span>
+
+<strong id="threatLevel">
+
+LOW
+
+</strong>
+
+</div>
+
+<div class="infoRow">
+
+<span>
+
+Capture Candidate
+
+</span>
+
+<strong id="captureTarget">
+
+Analyzing...
+
+</strong>
+
+</div>
+
+<div class="infoRow">
+
+<span>
+
+Predicted Collision
+
+</span>
+
+<strong id="collisions">
+
+0
+
+</strong>
+
+</div>
+
+<div class="infoRow">
+
+<span>
+
+Mission Health
+
+</span>
+
+<strong>
+
+98%
+
+</strong>
+
+</div>
+
+<div class="infoRow">
+
+<span>
+
+AI Confidence
+
+</span>
+
+<strong>
+
+96%
+
+</strong>
+
+</div>
+
+</section>
+
+<section class="panel">
+
+<h2>
+
+📊 Mission Statistics
+
+</h2>
+
+<div class="statsGrid">
+
+<div class="miniCard">
+
+<h3>
+
+Objects
+
+</h3>
+
+<p id="objects">
+
+0
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+LEO
+
+</h3>
+
+<p id="leo">
+
+0
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+MEO
+
+</h3>
+
+<p id="meo">
+
+0
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+GEO
+
+</h3>
+
+<p id="geo">
+
+0
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+Fastest
+
+</h3>
+
+<p id="fastest">
+
+0 km/s
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+Average
+
+</h3>
+
+<p id="avgSpeed">
+
+0 km/s
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+Debris Mass
+
+</h3>
+
+<p id="debrisMass">
+
+0 kg
+
+</p>
+
+</div>
+
+<div class="miniCard">
+
+<h3>
+
+Capture Score
+
+</h3>
+
+<p>
+
+91%
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="panel fullWidth">
+
+<h2>
+🛰 Satellite Information
+</h2>
+
+<div id="objectInfo">
+
+<h3>No Object Selected</h3>
+
+<p>
+Click a satellite or search for one.
+</p>
+
+<hr>
+
+<p>
+<strong>Name:</strong> --
+</p>
+
+<p>
+<strong>NORAD ID:</strong> --
+</p>
+
+<p>
+<strong>Orbit:</strong> --
+</p>
+
+<p>
+<strong>Altitude:</strong> --
+</p>
+
+<p>
+<strong>Velocity:</strong> --
+</p>
+
+<p>
+<strong>Estimated Mass:</strong> --
+</p>
+
+<p>
+<strong>Collision Risk:</strong> --
+</p>
+
+<p>
+<strong>AI Capture Priority:</strong> --
+</p>
+
+<p>
+<strong>Status:</strong> --
+</p>
+
+<p>
+<strong>Last Updated:</strong> --
+</p>
+
+<p>
+<strong>Recommendation:</strong> --
+</p>
+
+</div>
+
+</section>
+<!--
+
+===================================== -->
+<!-- SEARCH PANEL -->
+<!-- ===================================== -->
+
+<section class="panel">
+
+<h2>
+
+🔎 Search Orbital Object
+
+</h2>
+
+<div class="searchBar">
+
+<input
+id="searchBox"
+type="text"
+placeholder="Search by object name...">
+
+<button onclick="searchObject()">
+
+Search
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- MISSION TIMELINE -->
+<!-- ===================================== -->
+
+<section class="panel">
+
+<h2>
+
+📜 Mission Timeline
+
+</h2>
+
+<div id="timeline">
+
+<div class="timelineItem">
+
+<span class="time">
+
+00:00 WAT
+
+</span>
+
+Mission Control Initialized
+
+</div>
+
+<div class="timelineItem">
+
+<span class="time">
+
+00:00 WAT
+
+</span>
+
+AI Systems Online
+
+</div>
+
+<div class="timelineItem">
+
+<span class="time">
+
+00:00 WAT
+
+</span>
+
+Waiting For Orbital Updates...
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- SYSTEM HEALTH -->
+<!-- ===================================== -->
+
+<section class="panel">
+
+<h2>
+
+🖥 System Health
+
+</h2>
+
+<div class="healthGrid">
+
+<div>
+
+GPU
+
+<strong>
+
+ONLINE
+
+</strong>
+
+</div>
+
+<div>
+
+Tracking
+
+<strong>
+
+ACTIVE
+
+</strong>
+
+</div>
+
+<div>
+
+AI Engine
+
+<strong>
+
+READY
+
+</strong>
+
+</div>
+
+<div>
+
+Telemetry
+
+<strong>
+
+CONNECTED
+
+</strong>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+<!-- ===================================== -->
+<!-- ORBITAL ANALYTICS -->
+<!-- ===================================== -->
+
+<section class="analyticsSection">
+
+<h2>📊 Orbital Analytics</h2>
+
+<div class="analyticsGrid">
+
+<div class="chartCard">
+
+<h3>Orbit Distribution</h3>
+
+<canvas id="orbitChart"></canvas>
+
+</div>
+
+<div class="chartCard">
+
+<h3>Average Orbit Altitude</h3>
+
+<canvas id="altitudeChart"></canvas>
+
+</div>
+
+<div class="chartCard">
+
+<h3>Velocity Distribution</h3>
+
+<canvas id="velocityChart"></canvas>
+
+</div>
+
+<div class="chartCard">
+
+<h3>Debris Mass Distribution</h3>
+
+<canvas id="massChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- OBJECT INFORMATION -->
+<!-- ===================================== -->
+
+<section class="panel fullWidth">
+
+<h2>
+
+🛰 Selected Object
+
+</h2>
+
+<div id="objectInfo">
+
+Select a satellite from the map or use the search
+box to view detailed information.
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- AI WARNING -->
+<!-- ===================================== -->
+
+<section class="panel fullWidth">
+
+<h2>
+
+⚠ Mission Alerts
+
+</h2>
+
+<div id="warningBox">
+
+✅ Orbital Traffic Stable
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- FOOTER -->
+<!-- ===================================== -->
+
+<footer>
+
+<h2>
+
+OrbitalGuard AI
+
+</h2>
+
+<p>
+
+Designed & Developed by
+
+<strong>
+
+Peculiar Marcellinus
+
+</strong>
+
+</p>
+
+<p>
+
+Mission Control Prototype Version 4.0
+
+</p>
+
+</footer>
+
+<!-- ===================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================== -->
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="earth3d.js"></script>
+
+<script src="satellites.js"></script>
+
+<script src="dashboard.js"></script>
+<script src="analytics.js"></script>
+<script src="aiEngine.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
